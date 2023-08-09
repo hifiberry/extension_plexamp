@@ -1,0 +1,12 @@
+version: '3'
+services:
+  plexamp:
+    container_name: plexamp
+    privileged: true
+    network_mode: "host"
+    image: ghcr.io/pmdroid/plexamp-headless-docker:arm64-474
+    volumes:
+      - /root/plexamp/:/home/plexamp:rw
+      - /run:/run:rw
+    restart: unless-stopped
+
