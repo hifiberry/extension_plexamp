@@ -71,7 +71,7 @@ beo.bus.on('plexamp', function(event) {
 
 
 function getPlexampStatus(callback) {
-	exec("/opt/hifiberry/bin/extension running plexamp").on('exit', function(code) {
+	exec("/opt/hifiberry/bin/extensions running plexamp").on('exit', function(code) {
 		if (code == 0) {
 			settings.plexampEnabled = true;
 			callback(true);
@@ -84,7 +84,7 @@ function getPlexampStatus(callback) {
 
 function setPlexampStatus(enabled, callback) {
 	if (enabled) {
-		exec("/opt/hifiberry/bin/extension start plexamp").on('exit', function(code) {
+		exec("/opt/hifiberry/bin/extensions start plexamp").on('exit', function(code) {
 			if (code == 0) {
 				settings.plexampEnabled = true;
 				if (debug) console.log("Plexamp enabled.");
@@ -95,7 +95,7 @@ function setPlexampStatus(enabled, callback) {
 			}
 		});
 	} else {
-		exec("/opt/hifiberry/bin/extension/stop plexamp").on('exit', function(code) {
+		exec("/opt/hifiberry/bin/extensions stop plexamp").on('exit', function(code) {
 			if (code == 0) {
 				settings.plexampEnabled = false;
 				if (debug) console.log("Plexamp disabled.");
