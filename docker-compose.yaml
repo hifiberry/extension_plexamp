@@ -10,7 +10,7 @@ services:
       args:
         PLEXAMP_BUILD_VERSION: "4.8.2"
     volumes:
-      - /data/plexamp/:/home/plexamp:rw
+      - /data/extensiondata/plexamp/:/home/plexamp:rw
       - /run:/run:rw
     restart: unless-stopped
 
