@@ -7,8 +7,8 @@ RUN apt -y update \
   && apt -y install --no-install-recommends bzip2 alsa-utils \
   && apt -y install --no-install-recommends liblo-dev jq curl ca-certificates
 
-RUN groupadd -g 2002 plexamp \
-  && useradd -g 2002 -u 2002 -s /bin/bash -d /home/plexamp -G audio plexamp
+RUN groupadd -g 2000 plexamp \
+  && useradd -g 2000 -u 2000 -s /bin/bash -d /home/plexamp -G audio plexamp
 
 
 RUN mkdir /app \
@@ -16,12 +16,12 @@ RUN mkdir /app \
   && tar -jxvf /tmp/plexamp-linux.tbz2 -C /app \
   && rm -f /tmp/*.tbz2 \
   && echo $PLEXAMP_BUILD_VERSION | sed -e 's/^v//' > /app/plexamp_version \
-  && chown -R 2002:2002 /app \
+  && chown -R 2000:2000 /app \
   && apt-get -y clean autoclean \
   && apt-get autoremove -y 
 
 VOLUME /home/plexamp
-USER 2002
+USER 2000
 WORKDIR /app/plexamp
 
 CMD ["node", "js/index.js"]
