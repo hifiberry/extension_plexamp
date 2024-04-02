@@ -7,10 +7,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        PLEXAMP_BUILD_VERSION: "4.8.2"
     volumes:
       - /data/extensiondata/plexamp/:/home/plexamp:rw
       - /run:/run:rw
     restart: unless-stopped
+    group_add:
+      - 2001
 
