@@ -1,4 +1,4 @@
-FROM node:16-bullseye-slim 
+FROM node:20-bullseye-slim 
 
 ARG PLEXAMP_BUILD_VERSION=4.10.1
 RUN apt -y update \
@@ -7,7 +7,7 @@ RUN apt -y update \
   && apt -y install --no-install-recommends liblo-dev jq curl ca-certificates
 
 RUN groupadd -g 2000 plexamp \
-  && useradd -g 2000 -u 2002 -s /bin/bash -d /home/plexamp -G audio plexamp
+  && useradd -g 2000 -u 2000 -s /bin/bash -d /home/plexamp -G audio plexamp
 
 
 RUN mkdir /app && \
