@@ -4,9 +4,10 @@ services:
     container_name: plexamp
     privileged: true
     network_mode: "host"
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/hifiberry/extension_plexamp:4.10.1
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
     volumes:
       - /etc/hostname:/etc/hostname
       - /etc/plexamp.token:/etc/plexamp.token

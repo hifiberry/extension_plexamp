@@ -1,0 +1,26 @@
+#!/bin/python
+import os
+
+def create_empty_file(file_path):
+    # Check if the path exists
+    if os.path.exists(file_path):
+        # If it's a directory, remove it
+        if os.path.isdir(file_path):
+            os.rmdir(file_path)
+            # Create an empty file
+            with open(file_path, 'w') as file:
+                pass
+            print(f"Directory {file_path} was removed and an empty file was created.")
+        else:
+            print(f"The file {file_path} already exists. No changes made.")
+    else:
+        # Create an empty file
+        with open(file_path, 'w') as file:
+            pass
+        print(f"Empty file {file_path} was created.")
+
+if __name__ == "__main__":
+    # Define the file path
+    file_path = "/etc/plexamp.token"
+    create_empty_file(file_path)
+
