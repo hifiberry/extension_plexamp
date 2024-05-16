@@ -18,12 +18,12 @@ RUN mkdir /app && \
   apt-get -y clean autoclean && \
   apt-get autoremove -y 
 
+COPY docker/claimtoken /app/plexamp
 COPY docker/start-plexamp /app/plexamp
 
 VOLUME /home/plexamp
 USER plexamp
 WORKDIR /app/plexamp
 
-#CMD ["node", "js/index.js"]
-CMD ["/usr/bin/expect", "start-plexamp"]
-#CMD ["sh", "-c", "sleep 300" ]
+CMD ["/bin/sh", "start-plexamp"]
+#CMD ["sh", "-c", "sleep 3000" ]
