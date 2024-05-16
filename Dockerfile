@@ -25,5 +25,5 @@ USER plexamp
 WORKDIR /app/plexamp
 
 #CMD ["node", "js/index.js"]
-CMD ["start-plexamp"]
+CMD ["/usr/bin/expect", "start-plexamp"]
 #CMD ["sh", "-c", "sleep 300" ]
