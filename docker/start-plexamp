@@ -1,0 +1,46 @@
+#!/usr/bin/expect
+
+# Define the configuration files
+set claim_token_file "/etc/plexamp.token"
+set hostname_file "/etc/hostname"
+set connected_file "/home/plexamp/connected"
+
+# Function to read the claim token from the claim token file
+proc get_claim_token {claim_token_file} {
+    set fp [open $claim_token_file r]
+    set claim_token_data [read $fp]
+    close $fp
+    return $claim_token_data
+}
+
+# Function to read the player name from the hostname file
+proc get_player_name {hostname_file} {
+    set fp [open $hostname_file r]
+    set hostname_data [read $fp]
+    close $fp
+    return $hostname_data
+}
+
+# Get the claim token and player name
+set claim_token [string trim [get_claim_token $claim_token_file]]
+set player_name [string trim [get_player_name $hostname_file]]
+
+# Start the Plexamp application
+spawn node js/index.js
+
+# Interact with the Plexamp application
+expect "Please visit https://plex.tv/claim and enter the claim token: "
+send "$claim_token\r"
+
+expect "Please give the player a name (e.g. Bedroom, Kitchen): "
+send "$player_name\r"
+
+# Wait for the "Plexamp is now signed in and ready!" message
+expect {
+    "Plexamp is now signed in and ready!" {
+        # Create the connected file
+        exec sh -c "touch $connected_file"
+    }
+}
+
+expect eof

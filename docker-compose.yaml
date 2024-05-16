@@ -8,6 +8,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
+      - /etc/hostname:/etc/hostname
+      - /etc/plexamp.token:/etc/plexamp.token
       - /data/extensiondata/plexamp/:/home/plexamp:rw
       - /run:/run:rw
     restart: unless-stopped

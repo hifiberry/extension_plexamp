@@ -1,10 +1,9 @@
-FROM node:16-bullseye-slim 
+FROM node:20-bullseye-slim 
 
 ARG PLEXAMP_BUILD_VERSION=4.10.1
 RUN apt -y update \
   && apt -y upgrade \
-  && apt -y install --no-install-recommends bzip2 alsa-utils \
-  && apt -y install --no-install-recommends liblo-dev jq curl ca-certificates
+  && apt -y install --no-install-recommends bzip2 alsa-utils liblo-dev jq curl ca-certificates expect
 
 RUN groupadd -g 2000 plexamp \
   && useradd -g 2000 -u 2002 -s /bin/bash -d /home/plexamp -G audio plexamp
@@ -19,8 +18,12 @@ RUN mkdir /app && \
   apt-get -y clean autoclean && \
   apt-get autoremove -y 
 
+COPY docker/start-plexamp /app/plexamp
+
 VOLUME /home/plexamp
 USER plexamp
 WORKDIR /app/plexamp
 
-CMD ["node", "js/index.js"]
+#CMD ["node", "js/index.js"]
+CMD ["start-plexamp"]
+#CMD ["sh", "-c", "sleep 300" ]
