@@ -3,8 +3,9 @@
 The Plexamp extension integrates PlexAmp into HiFiBerryOS. However, due toi the architecture of PlexAmp and the fact that it's closed source, there are some serious limitations:
 - HiFiBerryOS is not able to show the status of PlexAmp
 - No metadata from PlexAmp will be reported in the UI
-- No control is possible from the HiFIBerryOS GUI
+- No control is possible from the HiFIBerryOS GUI, you can't start/stop/skip playback
 - Enabling the extension requires some command line interactions
+- With >200MB RAM usage tha player requires more resources than other players. You will probably like to use a Pi with at least 2GB RAM
 
 ## Setting up the extension
 
@@ -16,4 +17,4 @@ The Plexamp extension integrates PlexAmp into HiFiBerryOS. However, due toi the 
 /opt/hifiberry/extensions stop plexamp
 /opt/hifiberry/extensions start plexamp
 ```
-5. If the claim token could be used, you should now see a file /data/extensiondata/plexamp/connected
+5. If the claim token could be used, you should now see a file /data/extensiondata/plexamp/token_accepted

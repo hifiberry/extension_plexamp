@@ -29,7 +29,7 @@ set player_name [string trim [get_player_name $hostname_file]]
 log_user 1
 
 # Start the Plexamp application
-spawn node js/index.js
+spawn node_pa js/index.js
 
 # Interact with the Plexamp application only if the claim token is not empty
 if {[string length $claim_token] > 0} {

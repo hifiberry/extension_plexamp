@@ -2,7 +2,6 @@ version: '3'
 services:
   plexamp:
     container_name: plexamp
-    privileged: true
     network_mode: "host"
     image: ghcr.io/hifiberry/extension_plexamp:4.10.1
     #build:
@@ -16,4 +15,5 @@ services:
     restart: unless-stopped
     group_add:
       - 2001
+    privileged: true
 

@@ -4,7 +4,7 @@
 if [ -f /home/plexamp/.local/share/Plexamp/Settings/%40Plexamp%3Auser%3Atoken ]; then
     echo "Player connected, do not use claimtoken"
     # If the file exists, run the Node.js script
-    node js/index.js
+    node_pa js/index.js
 else
     # If the file does not exist, run the expect script and add the token
     echo "Player not connected, add token"
