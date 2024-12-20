@@ -1,0 +1,9 @@
+#!/bin/sh
+VERSION=`cat version`
+IMAGEID=$1
+if [ "$IMAGEID" == "" ]; then
+  IMAGEID=plexamp:$VERSION
+fi
+docker tag $IMAGEID ghcr.io/hifiberry/extension_plexamp:$VERSION
+docker push ghcr.io/hifiberry/extension_plexamp:$VERSION
+

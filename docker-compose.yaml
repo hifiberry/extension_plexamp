@@ -3,7 +3,7 @@ services:
   plexamp:
     container_name: plexamp
     network_mode: "host"
-    image: ghcr.io/hifiberry/extension_plexamp:4.10.1
+    image: ghcr.io/hifiberry/extension_plexamp:4.11.4-pw
     #build:
     #  context: .
     #  dockerfile: Dockerfile
