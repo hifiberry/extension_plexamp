@@ -15,7 +15,7 @@ The Plexamp extension integrates PlexAmp into HiFiBerryOS. However, due toi the 
 3. Edit the file /etc/plexamp.token and add the claim token that you can retrieve from https://plex.tv/claim (this requires a PlexAmp subscription)
 4. Restart the extension: 
 ```
-/opt/hifiberry/extensions stop plexamp
-/opt/hifiberry/extensions start plexamp
+/opt/hifiberry/bin/extensions stop plexamp
+/opt/hifiberry/bin/extensions start plexamp
 ```
 5. If the claim token could be used, you should now see a file /data/extensiondata/plexamp/token_accepted
